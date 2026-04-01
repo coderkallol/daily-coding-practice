@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') no-repeat center/cover;
+      display: flex;
+      align-items: center;
+    }
+
+    .container {
+      width: 420px;
+      height: 90vh;
+      background: #f5f5f5;
+      margin-left: 40px;
+      padding: 20px;
+      overflow-y: auto;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    section {
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .title {
+      font-weight: bold;
+    }
+
+    .date {
+      font-size: 12px;
+      color: gray;
+    }
+
+    /* Scrollbar */
+    .container::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .container::-webkit-scrollbar-thumb {
+      background: #999;
+      border-radius: 10px;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      body {
+        justify-content: center;
+      }
+
+      .container {
+        width: 90%;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Writing -->
+    <section>
+      <h2>Writing</h2>
+      <ul>
+        <li>
+          <div class="title">How I Became a Developer</div>
+          <div class="date">2024</div>
+        </li>
+        <li>
+          <div class="title">Understanding JavaScript Deeply</div>
+          <div class="date">2023</div>
+        </li>
+        <li>
+          <div class="title">Frontend Architecture Guide</div>
+          <div class="date">2023</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- About -->
+    <section>
+      <h2>About</h2>
+      <p>
+        I am a passionate frontend developer who loves building clean and
+        interactive user experiences. I focus on writing scalable and maintainable code.
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <h2>Experience</h2>
+      <ul>
+        <li>
+          <div class="title">Frontend Developer</div>
+          <div class="date">2023 - Present</div>
+        </li>
+        <li>
+          <div class="title">Junior Developer</div>
+          <div class="date">2022 - 2023</div>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+  <script>
+    // Smooth scroll (optional future nav support)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
