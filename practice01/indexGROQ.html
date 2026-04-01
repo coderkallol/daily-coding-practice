@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bryn Taylor — Freelance Senior Product Designer based in Copenhagen">
+    <title>Bryn Taylor — Freelance Product Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@500&amp;display=swap');
+        
+        :root {
+            --tw-color-primary: #f8f1eb;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        .tail-container * {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(180deg, #f8f1eb 0%, #ffffff 100%);
+        }
+        
+        .section-header {
+            position: relative;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #111111;
+        }
+        
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 25px 25px 0 -10px #f8f1eb;
+        }
+        
+        .phone-mock {
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 
+                        0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #111111;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .writing-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .writing-link:hover .arrow {
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body class="tail-container">
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto px-6 py-5 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-x-3">
+                <div class="w-8 h-8 bg-black rounded-2xl flex items-center justify-center text-white text-xl leading-none pt-0.5">◈</div>
+                <span class="heading-font text-2xl font-medium tracking-[-1px]">Bryn Taylor</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="#work" onclick="smoothScrollTo('work')" class="nav-link text-gray-900">Work</a>
+                <a href="#writing" onclick="smoothScrollTo('writing')" class="nav-link text-gray-900">Writing</a>
+                <a href="#about" onclick="smoothScrollTo('about')" class="nav-link text-gray-900">About</a>
+                <a href="#experience" onclick="smoothScrollTo('experience')" class="nav-link text-gray-900">Experience</a>
+                <a href="#get-in-touch" onclick="smoothScrollTo('get-in-touch')" class="nav-link text-gray-900">Contact</a>
+            </div>
+
+            <!-- Social + Mobile Hamburger -->
+            <div class="flex items-center gap-x-5">
+                <a href="https://instagram.com" target="_blank" class="text-gray-900 hover:text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2h2m4-3v3m-4 0h4" />
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="text-gray-900 hover:text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 3a2 2 0 01-2 2 2 2 0 01-2 2 2 2 0 01-2-2 2 2 0 01-2-2 2 2 0 01-2-2 2 2 0 01-2-2z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 10v10a2 2 0 01-2 2H5a2 2 0 01-2-2V10" />
+                    </svg>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex items-center justify-center text-2xl">
+                    <span id="hamburger" class="text-3xl leading-none">☰</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-6 py-4">
+            <div class="flex flex-col gap-y-4 text-sm font-medium">
+                <a href="#work" onclick="smoothScrollTo('work');toggleMobileMenu()" class="py-2">Work</a>
+                <a href="#writing" onclick="smoothScrollTo('writing');toggleMobileMenu()" class="py-2">Writing</a>
+                <a href="#about" onclick="smoothScrollTo('about');toggleMobileMenu()" class="py-2">About</a>
+                <a href="#experience" onclick="smoothScrollTo('experience');toggleMobileMenu()" class="py-2">Experience</a>
+                <a href="#get-in-touch" onclick="smoothScrollTo('get-in-touch');toggleMobileMenu()" class="py-2">Contact</a>
+                <div class="pt-4 border-t flex gap-6">
+                    <a href="https://instagram.com" target="_blank" class="flex items-center gap-2">Instagram</a>
+                    <a href="https://twitter.com" target="_blank" class="flex items-center gap-2">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg pt-12 pb-20">
+        <div class="max-w-screen-2xl mx-auto px-6">
+            <div class="max-w-2xl">
+                <h1 class="heading-font text-7xl md:text-8xl leading-[1.05] font-medium tracking-[-2px] text-black">
+                    Bryn Taylor
+                </h1>
+                <h2 class="heading-font text-7xl md:text-8xl leading-[1.05] font-medium tracking-[-2px] text-black mt-1">
+                    Freelance product designer
+                </h2>
+                
+                <div class="mt-12 max-w-md text-lg leading-relaxed text-gray-700">
+                    Freelance senior product designer. Based in Copenhagen. Available for remote-friendly freelance work from September.
+                </div>
+                
+                <div class="mt-6 text-base text-gray-600 max-w-md">
+                    Most recently at Denmark's newest unicorn, Pleo.<br>
+                    Previously in London, at Monzo — the fastest growing bank in the UK. Before that, the first design-hire at Thriva.
+                </div>
+                
+                <!-- Trust line -->
+                <div class="mt-16 flex items-center gap-8 text-sm">
+                    <div class="flex items-center">
+                        <div class="text-xs uppercase tracking-[1px] font-medium">Last worked at</div>
+                        <div class="ml-3 text-2xl font-semibold">Pleo</div>
+                    </div>
+                    <div class="h-3 w-px bg-gray-300"></div>
+                    <a href="#work" onclick="smoothScrollTo('work')" 
+                       class="inline-flex items-center gap-2 text-sm font-medium group">
+                        See all work 
+                        <span class="group-hover:translate-x-1">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- WORK SECTION -->
+    <section id="work" class="max-w-screen-2xl mx-auto px-6 py-20">
+        <div class="flex items-baseline justify-between mb-8">
+            <h2 class="section-header text-5xl heading-font font-medium tracking-[-1px]">Work</h2>
+            <a href="#" onclick="fakeClick('All work is shown below 👇')" 
+               class="hidden md:flex items-center text-sm font-medium text-gray-500 hover:text-black">
+                View all projects →
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Project 1 -->
+            <div class="project-card bg-white border rounded-3xl overflow-hidden col-span-1 lg:col-span-2">
+                <div class="bg-[#f8e8e0] p-8 flex justify-center">
+                    <div class="flex gap-6 scale-90 md:scale-100">
+                        <!-- Phone mockups -->
+                        <div class="phone-mock bg-white rounded-[2.5rem] p-2 shadow-2xl w-52">
+                            <div class="bg-black rounded-3xl h-full flex flex-col overflow-hidden">
+                                <div class="h-6 bg-white flex items-center justify-center mx-auto w-28 rounded-b-3xl"></div>
+                                <div class="flex-1 p-4 text-xs flex flex-col">
+                                    <div class="text-center text-white mb-6">Save time with Face ID</div>
+                                    <div class="flex-1 flex items-center justify-center text-[10px] leading-tight text-center">Onboarding employees in-app</div>
+                                    <div class="mt-auto text-[10px] text-center text-white">Pleo</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="phone-mock bg-white rounded-[2.5rem] p-2 shadow-2xl w-52 mt-8">
+                            <div class="bg-[#f8e8e0] rounded-3xl h-full flex flex-col overflow-hidden">
+                                <div class="flex-1 p-6 flex flex-col items-center justify-center">
+                                    <div class="text-center">Never pay out-of-pocket</div>
+                                    <div class="mt-8 text-xs">Card paired, here's your PIN</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="phone-mock bg-white rounded-[2.5rem] p-2 shadow-2xl w-52">
+                            <div class="bg-white rounded-3xl h-full flex flex-col overflow-hidden">
+                                <div class="flex-1 p-4 text-xs">Card paired, here's your PIN</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-baseline">
+                        <div>
+                            <div class="font-medium">Pleo</div>
+                            <div class="text-gray-500 text-sm">Onboarding employees in-app</div>
+                        </div>
+                        <span class="text-xs uppercase font-medium tracking-widest bg-black text-white px-3 py-1 rounded-3xl">2021</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card bg-white border rounded-3xl overflow-hidden">
+                <div class="bg-[#f8f1eb] p-8">
+                    <div class="text-center">
+                        <div class="text-4xl font-medium heading-font">Buy less<br>by<br>knowing more</div>
+                        <div class="mt-12 flex justify-center gap-4">
+                            <div class="bg-white px-6 py-3 rounded-3xl shadow-sm">Good Garms</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-baseline">
+                        <div>
+                            <div class="font-medium">Good Garms</div>
+                            <div class="text-gray-500 text-sm">Curated sustainable clothing</div>
+                        </div>
+                        <span class="text-xs uppercase font-medium tracking-widest bg-[#f8e8e0] px-3 py-1 rounded-3xl">2021</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card bg-white border rounded-3xl overflow-hidden">
+                <div class="bg-[#f4f9f0] p-8 flex justify-center">
+                    <div class="flex gap-4">
+                        <div class="phone-mock bg-white rounded-3xl p-2 w-40">
+                            <div class="bg-white h-full rounded-3xl flex flex-col p-3 text-xs">Expense allowances</div>
+                        </div>
+                        <div class="phone-mock bg-white rounded-3xl p-2 w-40 mt-6">
+                            <div class="bg-white h-full rounded-3xl flex flex-col p-3 text-xs">Hassle-free expense allowances</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-baseline">
+                        <div>
+                            <div class="font-medium">Pleo</div>
+                            <div class="text-gray-500 text-sm">Hassle-free expense allowances</div>
+                        </div>
+                        <span class="text-xs uppercase font-medium tracking-widest bg-black text-white px-3 py-1 rounded-3xl">2021</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card bg-white border rounded-3xl overflow-hidden">
+                <div class="bg-[#e8f4f0] p-8 flex justify-center items-center gap-6">
+                    <div class="phone-mock bg-white rounded-3xl w-40 h-72 flex flex-col text-xs p-4">Credit score 629</div>
+                    <div class="phone-mock bg-white rounded-3xl w-40 h-72 flex flex-col text-xs p-4 mt-12">Monzo</div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-baseline">
+                        <div>
+                            <div class="font-medium">Monzo</div>
+                            <div class="text-gray-500 text-sm">Credit scores simplified</div>
+                        </div>
+                        <span class="text-xs uppercase font-medium tracking-widest bg-[#e8f4f0] px-3 py-1 rounded-3xl">2020</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card bg-white border rounded-3xl overflow-hidden">
+                <div class="p-8 bg-gray-50 flex justify-center">
+                    <div class="max-w-xs text-center">
+                        <div class="text-xs uppercase mb-2">Accessibility-first</div>
+                        <div class="text-lg font-medium">Sub-section title</div>
+                        <div class="mt-8 text-xs text-gray-500">Design system</div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-baseline">
+                        <div>
+                            <div class="font-medium">Alva</div>
+                            <div class="text-gray-500 text-sm">Accessibility-first design system</div>
+                        </div>
+                        <span class="text-xs uppercase font-medium tracking-widest bg-black text-white px-3 py-1 rounded-3xl">2020</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="project-card bg-white border rounded-3xl overflow-hidden col-span-1 lg:col-span-2">
+                <div class="flex flex-col md:flex-row gap-8 p-8 bg-[#ffe8e8]">
+                    <div class="flex-1">
+                        <div class="phone-mock bg-white rounded-3xl w-full max-w-xs mx-auto p-2">
+                            <div class="h-72 bg-white flex items-center justify-center text-xs">Health tracking</div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="phone-mock bg-white rounded-3xl w-full max-w-xs mx-auto p-2">
+                            <div class="h-72 bg-white flex items-center justify-center text-xs">Thriva</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-baseline">
+                        <div>
+                            <div class="font-medium">Thriva</div>
+                            <div class="text-gray-500 text-sm">Health tracking product and website</div>
+                        </div>
+                        <span class="text-xs uppercase font-medium tracking-widest bg-[#ffe8e8] px-3 py-1 rounded-3xl">2019</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 7 -->
+            <div class="project-card bg-white border rounded-3xl overflow-hidden">
+                <div class="p-8 bg-[#f8f1eb] grid grid-cols-3 gap-2">
+                    <div class="col-span-1 aspect-square bg-white rounded-2xl flex items-center justify-center text-[10px]">Adidas</div>
+                    <div class="col-span-1 aspect-square bg-white rounded-2xl flex items-center justify-center text-[10px]">Football</div>
+                    <div class="col-span-1 aspect-square bg-white rounded-2xl flex items-center justify-center text-[10px]">App</div>
+                    <div class="col-span-3 text-center text-xs mt-4">Football app experience</div>
+                </div>
+                <div class="p-8">
+                    <div class="flex justify-between items-baseline">
+                        <div>
+                            <div class="font-medium">Adidas</div>
+                            <div class="text-gray-500 text-sm">Football app experience</div>
+                        </div>
+                        <span class="text-xs uppercase font-medium tracking-widest bg-black text-white px-3 py-1 rounded-3xl">2019</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WRITING SECTION -->
+    <section id="writing" class="max-w-screen-2xl mx-auto px-6 py-20 bg-white border-t">
+        <h2 class="section-header text-5xl heading-font font-medium tracking-[-1px] mb-12">Writing</h2>
+        
+        <div class="space-y-8 max-w-2xl">
+            <a href="#" onclick="fakeClick('Good Garms: All you need to know about linen')" class="writing-link group block">
+                <div class="flex justify-between items-baseline">
+                    <div class="flex-1">
+                        <div class="font-medium">Good Garms: All you need to know about linen</div>
+                        <div class="text-sm text-gray-500">Blog post • July 6, 2021 • 3 min read</div>
+                    </div>
+                    <span class="arrow text-2xl">→</span>
+                </div>
+            </a>
+            
+            <a href="#" onclick="fakeClick('Good Garms: A definitive guide to organic cotton')" class="writing-link group block">
+                <div class="flex justify-between items-baseline">
+                    <div class="flex-1">
+                        <div class="font-medium">Good Garms: A definitive guide to organic cotton</div>
+                        <div class="text-sm text-gray-500">Blog post • July 5, 2021 • 3 min read</div>
+                    </div>
+                    <span class="arrow text-2xl">→</span>
+                </div>
+            </a>
+            
+            <a href="#" onclick="fakeClick('Good Garms: What is slow fashion?')" class="writing-link group block">
+                <div class="flex justify-between items-baseline">
+                    <div class="flex-1">
+                        <div class="font-medium">Good Garms: What is slow fashion?</div>
+                        <div class="text-sm text-gray-500">Blog post • June 8, 2021 • 3 min read</div>
+                    </div>
+                    <span class="arrow text-2xl">→</span>
+                </div>
+            </a>
+            
+            <a href="#" onclick="fakeClick('Kerning from the best — 5 minutes with Bryn Taylor')" class="writing-link group block">
+                <div class="flex justify-between items-baseline">
+                    <div class="flex-1">
+                        <div class="font-medium">Kerning from the best — 5 minutes with Bryn Taylor</div>
+                        <div class="text-sm text-gray-500">Interview • March 22, 2021 • 5 min read</div>
+                    </div>
+                    <span class="arrow text-2xl">→</span>
+                </div>
+            </a>
+            
+            <a href="#" onclick="fakeClick('Good Garms: A glossary for sustainable and ethical fashion')" class="writing-link group block">
+                <div class="flex justify-between items-baseline">
+                    <div class="flex-1">
+                        <div class="font-medium">Good Garms: A glossary for sustainable and ethical fashion</div>
+                        <div class="text-sm text-gray-500">Blog post • January 1, 2021 • 4 min read</div>
+                    </div>
+                    <span class="arrow text-2xl">→</span>
+                </div>
+            </a>
+            
+            <a href="#" onclick="fakeClick('Lessons learnt: hiring for product design')" class="writing-link group block">
+                <div class="flex justify-between items-baseline">
+                    <div class="flex-1">
+                        <div class="font-medium">Lessons learnt: hiring for product design</div>
+                        <div class="text-sm text-gray-500">Blog post • December 19, 2018 • 7 min read</div>
+                    </div>
+                    <span class="arrow text-2xl">→</span>
+                </div>
+            </a>
+            
+            <a href="#" onclick="fakeClick('How to run smooth usability testing sessions')" class="writing-link group block">
+                <div class="flex justify-between items-baseline">
+                    <div class="flex-1">
+                        <div class="font-medium">How to run smooth usability testing sessions</div>
+                        <div class="text-sm text-gray-500">Blog post • August 22, 2018 • 5 min read</div>
+                    </div>
+                    <span class="arrow text-2xl">→</span>
+                </div>
+            </a>
+            
+            <a href="#" onclick="fakeClick('Bryn Taylor on pushing boundaries and design exploration')" class="writing-link group block">
+                <div class="flex justify-between items-baseline">
+                    <div class="flex-1">
+                        <div class="font-medium">Bryn Taylor on pushing boundaries and design exploration</div>
+                        <div class="text-sm text-gray-500">Interview • January 18, 2017 • 7 min read</div>
+                    </div>
+                    <span class="arrow text-2xl">→</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="max-w-screen-2xl mx-auto px-6 py-20 border-t bg-[#f8f1eb]">
+        <div class="grid md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="section-header text-5xl heading-font font-medium tracking-[-1px] mb-8">About</h2>
+                <div class="prose text-gray-700 text-lg leading-relaxed">
+                    I'm Bryn — a freelance product designer with 8 years of experience. I care a lot about using design for positive impact. Currently based in Copenhagen, Denmark.
+                </div>
+                <div class="mt-8 text-gray-700 leading-relaxed">
+                    I was most recently working at Denmark's newest unicorn, Pleo. Raising the biggest Series C Denmark has seen. Before that I worked for Monzo — the fastest growing bank in the UK. I led product design for over 4 million customers. I worked across multiple product squads solving complex money problems.
+                </div>
+            </div>
+            
+            <div class="text-gray-600 text-[15px] leading-relaxed space-y-6">
+                <p>Before Monzo — I was the first design hire at health startup, Thriva. I led all of Thriva's design output. From digital products, to test kit packaging, to marketing like their tube campaign. I was the 6th hire and the company grew to 35 whilst there. I played a big part in scaling the product team and processes.</p>
+                <p>Over the years I've worked across health, non-profit, finance, retail, automotive and telecoms. From early-stage startups like Thriva, to FTSE 100 companies like Morrisons. I've hypergrowth businesses like Monzo. I've also worked with some pretty awesome brands like Adidas, Microsoft and Mastercard.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="max-w-screen-2xl mx-auto px-6 py-20 border-t">
+        <h2 class="section-header text-5xl heading-font font-medium tracking-[-1px] mb-10">Experience</h2>
+        
+        <div class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-center gap-y-1 md:gap-x-8 border-b pb-6">
+                <div class="md:w-56 font-medium">Freelance Senior Product Designer</div>
+                <div class="text-gray-400">September 2021 onwards</div>
+                <div class="flex-1"></div>
+                <div class="text-sm text-gray-500">Current role</div>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center gap-y-1 md:gap-x-8 border-b pb-6">
+                <div class="md:w-56 font-medium">Pleo — Senior Product Designer</div>
+                <div class="text-gray-400">October 2020 – July 2021</div>
+                <div class="flex-1"></div>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center gap-y-1 md:gap-x-8 border-b pb-6">
+                <div class="md:w-56 font-medium">Good Garms — Co-founder</div>
+                <div class="text-gray-400">March 2021 – present</div>
+                <div class="flex-1"></div>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center gap-y-1 md:gap-x-8 border-b pb-6">
+                <div class="md:w-56 font-medium">Monzo — Product Designer</div>
+                <div class="text-gray-400">April 2019 – August 2020</div>
+                <div class="flex-1"></div>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center gap-y-1 md:gap-x-8 border-b pb-6">
+                <div class="md:w-56 font-medium">Alva — Freelance Product Designer</div>
+                <div class="text-gray-400">June 2020</div>
+                <div class="flex-1"></div>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center gap-y-1 md:gap-x-8 border-b pb-6">
+                <div class="md:w-56 font-medium">Thriva — Senior Product Designer</div>
+                <div class="text-gray-400">July 2017 – April 2019</div>
+                <div class="flex-1"></div>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center gap-y-1 md:gap-x-8 border-b pb-6">
+                <div class="md:w-56 font-medium">Great Fridays — Senior Visual Designer</div>
+                <div class="text-gray-400">November 2014 – June 2017</div>
+                <div class="flex-1"></div>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center gap-y-1 md:gap-x-8 border-b pb-6">
+                <div class="md:w-56 font-medium">Morrisons Digital — Freelance Digital Designer</div>
+                <div class="text-gray-400">July 2014 – October 2014</div>
+                <div class="flex-1"></div>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center gap-y-1 md:gap-x-8">
+                <div class="md:w-56 font-medium">Firedog — Junior Digital Designer</div>
+                <div class="text-gray-400">October 2013 – June 2014</div>
+                <div class="flex-1"></div>
+            </div>
+        </div>
+        
+        <div class="mt-10 text-center">
+            <button onclick="fakeClick('Full CV would open in a new tab (demo)')" 
+                    class="inline-flex items-center gap-x-4 bg-black text-white px-8 h-12 rounded-3xl text-sm font-medium">
+                SEE FULL CV 
+                <span class="text-xl">↓</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="max-w-screen-2xl mx-auto px-6 py-20 border-t bg-white">
+        <h2 class="section-header text-5xl heading-font font-medium tracking-[-1px] mb-10">Skills</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 rounded-3xl overflow-hidden">
+            <div class="bg-white px-8 py-7 text-xl font-medium">End-to-end product design</div>
+            <div class="bg-white px-8 py-7 text-xl font-medium">Interface design</div>
+            <div class="bg-white px-8 py-7 text-xl font-medium">User experience design</div>
+            <div class="bg-white px-8 py-7 text-xl font-medium">Product strategy</div>
+            <div class="bg-white px-8 py-7 text-xl font-medium">Systems thinking</div>
+            <div class="bg-white px-8 py-7 text-xl font-medium">Design systems</div>
+        </div>
+    </section>
+
+    <!-- INTERESTS -->
+    <section class="max-w-screen-2xl mx-auto px-6 py-20 border-t">
+        <h2 class="section-header text-5xl heading-font font-medium tracking-[-1px] mb-10">Interests</h2>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <!-- 12 interest images (using picsum with different seeds) -->
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/1015/600/600" alt="Beach path" class="w-full h-full object-cover"></div>
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/1016/600/600" alt="Hills" class="w-full h-full object-cover"></div>
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/133/600/600" alt="Pool" class="w-full h-full object-cover"></div>
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/201/600/600" alt="Coffee art" class="w-full h-full object-cover"></div>
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/1005/600/600" alt="Surfboard" class="w-full h-full object-cover"></div>
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/1018/600/600" alt="Sunset sea" class="w-full h-full object-cover"></div>
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/133/600/600" alt="Plate of food" class="w-full h-full object-cover"></div>
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/160/600/600" alt="Forest hike" class="w-full h-full object-cover"></div>
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/1009/600/600" alt="Paddleboard" class="w-full h-full object-cover"></div>
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/101/600/600" alt="City lights" class="w-full h-full object-cover"></div>
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/1003/600/600" alt="Forest canopy" class="w-full h-full object-cover"></div>
+            <div class="aspect-square rounded-3xl overflow-hidden border"><img src="https://picsum.photos/id/1014/600/600" alt="City skyline" class="w-full h-full object-cover"></div>
+        </div>
+    </section>
+
+    <!-- GET IN TOUCH -->
+    <section id="get-in-touch" class="max-w-screen-2xl mx-auto px-6 py-20 border-t bg-[#f8f1eb]">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-6xl heading-font font-medium tracking-[-1px] leading-none mb-6">Have a project in mind?</h2>
+            <p class="text-2xl text-gray-700 mb-12">If you want to chat about a project — email me on</p>
+            
+            <a href="mailto:hello@bryntaylor.co.uk" 
+               class="inline-block text-3xl font-medium underline decoration-2 underline-offset-8 hover:decoration-black mb-12">hello@bryntaylor.co.uk</a>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-left max-w-lg mx-auto">
+                <div>
+                    <div class="uppercase text-xs mb-1">I can help designing a new product, improving an existing part of your product experience, refining your product strategy, and building a strong design system.</div>
+                </div>
+                <div class="text-sm font-medium">
+                    Currently based in Copenhagen, Denmark — available for remote-friendly work from September 2021.
+                </div>
+                <div class="col-span-2 md:col-span-1 flex flex-col gap-2 text-sm">
+                    <a href="#" class="flex items-center justify-center border py-4 rounded-3xl">Twitter</a>
+                    <a href="#" class="flex items-center justify-center border py-4 rounded-3xl">Instagram</a>
+                    <a href="#" class="flex items-center justify-center border py-4 rounded-3xl">LinkedIn</a>
+                    <a href="#" class="flex items-center justify-center border py-4 rounded-3xl">Dribbble</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMAIL LIST -->
+    <section class="max-w-screen-2xl mx-auto px-6 py-20 border-t">
+        <div class="max-w-md mx-auto text-center">
+            <h2 class="text-5xl heading-font font-medium mb-3">Get design insights and articles straight to your inbox</h2>
+            
+            <form id="subscribeForm" onsubmit="handleSubscribe(event)" class="mt-8 flex flex-col sm:flex-row gap-3">
+                <input type="email" id="emailInput" 
+                       placeholder="Your email"
+                       class="flex-1 px-6 py-5 text-base border rounded-3xl focus:outline-none focus:border-black">
+                <button type="submit"
+                        class="bg-black text-white px-10 rounded-3xl font-medium text-base flex items-center justify-center">
+                    SUBSCRIBE
+                </button>
+            </form>
+            
+            <p class="text-xs text-gray-400 mt-4">No spam, unsubscribe at any time</p>
+            
+            <!-- Success message (hidden by default) -->
+            <div id="successMessage" class="hidden mt-6 bg-emerald-100 text-emerald-700 px-6 py-4 rounded-3xl text-sm font-medium">
+                ✅ You're now subscribed! Thank you, Bryn will send the first email soon.
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / PORTRAIT -->
+    <footer class="bg-white pt-16 pb-12">
+        <div class="max-w-screen-2xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <!-- Portrait -->
+                <div class="flex-1 flex justify-center md:justify-end">
+                    <div class="w-80 rounded-3xl overflow-hidden border-8 border-white shadow-2xl">
+                        <img src="https://picsum.photos/id/1005/800/1000" alt="Bryn Taylor" 
+                             class="w-full aspect-[4/5] object-cover">
+                    </div>
+                </div>
+                
+                <!-- Footer content -->
+                <div class="flex-1">
+                    <div class="max-w-xs">
+                        <p class="text-2xl font-medium leading-tight">I'm Bryn — a freelance product designer based in Copenhagen</p>
+                        
+                        <a href="mailto:hello@bryntaylor.co.uk" 
+                           class="mt-8 inline-flex items-center bg-black text-white rounded-3xl px-7 h-12 text-sm font-medium">
+                            EMAIL ME 
+                            <span class="ml-4 text-xl">✉️</span>
+                        </a>
+                        
+                        <div class="text-xs text-gray-400 mt-16">
+                            ©2021 to ∞ Bryn Taylor
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * Main script for Bryn Taylor portfolio recreation
+         * Built with pure HTML + Tailwind CSS (via CDN) + Vanilla JavaScript
+         */
+        
+        function initializeTailwind() {
+            return {
+                config(userConfig = {}) {
+                    return {
+                        content: [],
+                        theme: {
+                            extend: {},
+                        },
+                        plugins: [],
+                        ...userConfig,
+                    }
+                },
+                theme(config) {
+                    return config.theme
+                },
+            }
+        }
+        
+        // Tailwind CDN initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            const config = initializeTailwind().config({
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#f8f1eb'
+                        }
+                    }
+                }
+            })
+            window.tailwindConfig = () => config
+            return window.dispatchEvent(new Event('resize'))
+        })
+        
+        // Smooth scroll helper
+        function smoothScrollTo(section) {
+            const el = document.getElementById(section)
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' })
+            }
+        }
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu')
+            const hamburger = document.getElementById('hamburger')
+            
+            if (menu.classList.contains('hidden')) {
+                menu.style.display = 'block'
+                hamburger.innerHTML = '✕'
+            } else {
+                menu.style.display = 'none'
+                hamburger.innerHTML = '☰'
+            }
+            menu.classList.toggle('hidden')
+        }
+        
+        // Fake subscribe
+        function handleSubscribe(e) {
+            e.preventDefault()
+            const input = document.getElementById('emailInput')
+            const success = document.getElementById('successMessage')
+            
+            if (input.value.trim() === '') {
+                input.classList.add('animate-pulse')
+                setTimeout(() => input.classList.remove('animate-pulse'), 600)
+                return
+            }
+            
+            // Show success
+            input.value = ''
+            success.classList.remove('hidden')
+            
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                success.classList.add('hidden')
+            }, 5000)
+            
+            console.log('%c✅ Subscribed successfully (demo)', 'color:#10b981;font-weight:600')
+        }
+        
+        // Fake project click
+        function fakeClick(text) {
+            const toast = document.createElement('div')
+            toast.style.cssText = `
+                position:fixed; bottom:24px; right:24px; background:#111; color:#fff; 
+                padding:16px 24px; border-radius:9999px; box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.2);
+                font-size:14px; z-index:9999; display:flex; align-items:center; gap:12px;
+            `
+            toast.innerHTML = `
+                ${text} 
+                <span style="background:#fff;color:#111;border-radius:9999px;padding:2px 10px;font-size:12px;font-weight:600">DEMO</span>
+            `
+            document.body.appendChild(toast)
+            
+            setTimeout(() => {
+                toast.style.transitionDuration = '400ms'
+                toast.style.opacity = 0
+                setTimeout(() => toast.remove(), 400)
+            }, 2800)
+        }
+        
+        console.log('%c✅ Bryn Taylor portfolio website built with HTML, CSS & JavaScript (Tailwind CDN)', 'color:#f8f1eb;background:#111;padding:1px 4px;border-radius:2px;font-size:13px')
+    </script>
+</body>
+</html>
