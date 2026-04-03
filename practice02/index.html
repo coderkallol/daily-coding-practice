@@ -1,11 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <h1>My Portfolio</h1>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="about" class="carousel">
+      <div class="carousel-container">
+        <input type="radio" name="carousel" id="slide1" checked />
+        <input type="radio" name="carousel" id="slide2" />
+        <input type="radio" name="carousel" id="slide3" />
+
+        <div class="carousel-slides">
+          <div class="slide">
+            <h2>About Me</h2>
+            <p>
+              Hello! I'm a web developer passionate about creating beautiful and
+              functional websites.
+            </p>
+          </div>
+          <div class="slide">
+            <h2>My Skills</h2>
+            <p>
+              I specialize in HTML, CSS, JavaScript, and various frameworks like
+              React and Node.js.
+            </p>
+          </div>
+          <div class="slide">
+            <h2>My Interests</h2>
+            <p>
+              I love learning new technologies and contributing to open-source
+              projects.
+            </p>
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <label for="slide1"></label>
+          <label for="slide2"></label>
+          <label for="slide3"></label>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="projects-container">
+        <div class="project-card">
+          <img src="project1.jpg" alt="Project 1" />
+          <h3>Project 1</h3>
+          <p>
+            This is a web application built with React. It features user
+            authentication and real-time data updates.
+          </p>
+          <a href="https://github.com/user/project1" target="_blank"
+            >View on GitHub</a
+          >
+        </div>
+        <div class="project-card">
+          <img src="project2.jpg" alt="Project 2" />
+          <h3>Project 2</h3>
+          <p>
+            A responsive e-commerce site using HTML, CSS, and JavaScript.
+            Includes shopping cart functionality.
+          </p>
+          <a href="https://github.com/user/project2" target="_blank"
+            >View on GitHub</a
+          >
+        </div>
+        <div class="project-card">
+          <img src="project3.jpg" alt="Project 3" />
+          <h3>Project 3</h3>
+          <p>
+            A portfolio website showcasing my work. Built with minimalistic
+            design and smooth animations.
+          </p>
+          <a href="https://github.com/user/project3" target="_blank"
+            >View on GitHub</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="footer-container">
+        <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+        <p>Contact: email@example.com</p>
+      </div>
+    </footer>
+  </body>
 </html>
